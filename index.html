@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Joe's Hotdog Stand</title>
+    </head>
+    <body>
+        <h1>
+            CS20 Assignment 3: Joe's Hotdogs
+        </h1>
+        <h2>
+            Menu:
+        </h2>
+        <ul>
+            <li>Hot dog --------- $4.99</li>
+            <li>French fries ---- $3.99</li>
+            <li>Drink ----------- $1.99</li>
+        </ul>
+        <button onclick="order()">Place Order Here</button>
+        <script>
+            function order() {
+                const hdprice = 4.99;
+                const ffprice = 3.99;
+                const drprice = 1.79;
+                
+                let numdogs = parseInt(prompt("How many hotdogs would you like?"), 10);
+                let numfries = parseInt(prompt("How many fries would you like?"), 10);
+                let numdrinks = parseInt(prompt("How many sodas would you like?"), 10);
+                
+                function moneyround(amount) {
+                    return Math.round(amount * 100) / 100;
+                }
+
+                let subtot = (numdogs * hdprice) + (numfries * ffprice) + (numdrinks * drprice);
+                let discount = 0;
+                if (subtot >= 30) {
+                    discount = subtot * 0.10;
+                }
+
+                let discountedsubtot = subtot - discount;
+
+                const tax = 0.0625;
+                let taxtot = discountedsubtot * tax;
+
+                let finaltot = discountedsubtot + taxtot;
+
+                document.write("<h2>Order Summary</h2>");
+                document.write(`<p>Hotdogs: ${numdogs} x $${hdprice} = $${moneyround(numdogs * hdprice)}</p>`);
+                document.write(`<p>Fries: ${numfries} x $${ffprice} = $${moneyround(numfries * ffprice)}</p>`);
+                document.write(`<p>Sodas: ${numdrinks} x $${drprice} = $${moneyround(numdrinks * drprice)}</p>`);
+                document.write(`<p>Subtotal: $${moneyround(subtot)}</p>`);
+                document.write(`<p>Discount: $${moneyround(discount)}</p>`);
+                document.write(`<p>Subtotal after discount: $${moneyround(discountedsubtot)}</p>`);
+                document.write(`<p>Tax: $${moneyround(taxtot)}</p>`);
+                document.write(`<h3>Final Total: $${moneyround(finaltot)}</h3>`);
+            }
+        </script>
+    
+</body>
+</html>
