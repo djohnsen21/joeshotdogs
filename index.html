@@ -25,7 +25,7 @@
                 let numfries = parseInt(prompt("How many fries would you like?"), 10);
                 let numdrinks = parseInt(prompt("How many sodas would you like?"), 10);
                 
-                function moneyround(amount) {
+                function showMoney(amount) {
                     return Math.round(amount * 100) / 100;
                 }
 
@@ -43,14 +43,14 @@
                 let finaltot = discountedsubtot + taxtot;
 
                 document.write("<h2>Order Summary</h2>");
-                document.write(`<p>Hotdogs: ${numdogs} x $${hdprice} = $${moneyround(numdogs * hdprice)}</p>`);
-                document.write(`<p>Fries: ${numfries} x $${ffprice} = $${moneyround(numfries * ffprice)}</p>`);
-                document.write(`<p>Sodas: ${numdrinks} x $${drprice} = $${moneyround(numdrinks * drprice)}</p>`);
-                document.write(`<p>Subtotal: $${moneyround(subtot)}</p>`);
-                document.write(`<p>Discount: $${moneyround(discount)}</p>`);
-                document.write(`<p>Subtotal after discount: $${moneyround(discountedsubtot)}</p>`);
-                document.write(`<p>Tax: $${moneyround(taxtot)}</p>`);
-                document.write(`<h3>Final Total: $${moneyround(finaltot)}</h3>`);
+                document.write(`<p>Hotdogs: ${numdogs} x $${hdprice} = $${showMoney(numdogs * hdprice)}</p>`);
+                document.write(`<p>Fries: ${numfries} x $${ffprice} = $${showMoney(numfries * ffprice)}</p>`);
+                document.write(`<p>Sodas: ${numdrinks} x $${drprice} = $${showMoney(numdrinks * drprice)}</p>`);
+                document.write(`<p>Subtotal: $${showMoney(subtot)}</p>`);
+                document.write(`<p>Discount: $${showMoney(discount)}</p>`);
+                document.write(`<p>Subtotal after discount: $${showMoney(discountedsubtot)}</p>`);
+                document.write(`<p>Tax: $${showMoney(taxtot)}</p>`);
+                document.write(`<h3>Final Total: $${showMoney(finaltot)}</h3>`);
             }
         </script>
     
